@@ -1,0 +1,24 @@
+{
+  "operators": [
+    {
+      "id": "1",
+      "title": "Beeline",
+      "imgUrl": "/images/bee.png"
+    },
+    {
+      "id": "2",
+      "title": "MTS",
+      "imgUrl": "/images/mts.png"
+    },
+    {
+      "id": "3",
+      "title": "Megafon",
+      "imgUrl": "/images/meg.png"
+    },
+    {
+      "id": "4",
+      "title": "Yota",
+      "imgUrl": "/images/yota.png"
+    }
+  ]
+}
