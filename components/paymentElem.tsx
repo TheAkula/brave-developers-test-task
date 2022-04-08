@@ -13,15 +13,14 @@ import Message from "./message";
 const PaymentElem = styled.div`
   max-width: 800px;
   width: 100%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  margin: auto;
+  margin-top: 20px;
   background-color: #fff;
   padding: 20px;
   overflow: hidden;
   border-radius: 6px;
-  height: 80%;
+  height: 650px;
+  position: relative;
 
   @media screen and (max-width: 860px) {
     width: 90%;
@@ -32,14 +31,11 @@ const PaymentHeader = styled.div`
   margin-bottom: 20px;
 
   p {
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
 `;
 
 const Wrapper = styled.div`
-  position: relative;
-  height: 100%;
-
   &.fade-enter {
     transform: translateX(100%);
   }

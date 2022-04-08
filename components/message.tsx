@@ -39,10 +39,7 @@ const ErrorElem = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 120px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 60px;
   }
 
   .icon-container {
