@@ -1,15 +1,6 @@
 import Operator from "./operator";
-import data from "../public/data/operators.json";
-import styled from "styled-components";
-
-const OperatorsContainer = styled.div`
-  margin-top: 60px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-`;
+import data from "../../public/data/operators.json";
+import { OperatorsContainer } from "./styled";
 
 const Operators = ({ title }: { title: string }) => {
   return (

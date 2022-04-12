@@ -1,10 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-import Header from "./header";
-
-const LayoutContainer = styled.div`
-  position: relative;
-`;
+import Header from "../header";
+import { LayoutContainer } from "./styled";
 
 const Layout = ({ children }: any) => {
   return (
