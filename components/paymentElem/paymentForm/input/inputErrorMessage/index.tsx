@@ -1,13 +1,12 @@
 import styled from "styled-components";
+import { baseTheme } from "../../../../../styles/theme";
 
-const InputErrorMessage = styled.p`
+export const InputErrorMessage = styled.p`
   position: absolute;
   left: 0;
   top: 100%;
-  color: #ff0000;
+  color: ${baseTheme.colors.error};
   font-size: 12px;
   transform: translateY(6px);
   width: 250px;
 `;
-
-export default InputErrorMessage;

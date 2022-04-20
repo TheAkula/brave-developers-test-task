@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { baseTheme } from "../../../styles/theme";
 
-const Spinner = styled.div`
-  color: #ffef00;
+export const Spinner = styled.div`
+  color: ${baseTheme.colors.second};
   font-size: 11px;
   text-indent: -99999em;
   margin: 55px auto;
@@ -64,5 +65,3 @@ const Spinner = styled.div`
     }
   }
 `;
-
-export default Spinner;

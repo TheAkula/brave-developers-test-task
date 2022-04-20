@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { baseTheme } from "../../../styles/theme";
 
-const Button = styled.button`
+export const Button = styled.button`
   display: block;
   padding: 8px;
   border: none;
   border-radius: 2px;
-  background-color: #0090ff;
+  background-color: ${baseTheme.colors.primary};
   color: #fff;
 
   cursor: pointer;
@@ -16,5 +17,3 @@ const Button = styled.button`
     cursor: not-allowed;
   }
 `;
-
-export default Button;

@@ -1,8 +1,8 @@
-import Logo from "../logo";
-import Container from "../container";
+import { Logo } from "../logo";
+import { Container } from "../container";
 import { StyledHeader, HeaderInner } from "./styled";
 
-const Header = () => {
+export const Header = () => {
   return (
     <StyledHeader>
       <Container>
@@ -13,5 +13,3 @@ const Header = () => {
     </StyledHeader>
   );
 };
-
-export default Header;

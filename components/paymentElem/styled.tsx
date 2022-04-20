@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { baseTheme } from "../../styles/theme";
 
 export const PaymentElem = styled.div`
   max-width: 800px;
@@ -12,33 +13,8 @@ export const PaymentElem = styled.div`
   height: 650px;
   position: relative;
 
-  @media screen and (max-width: 860px) {
+  @media ${baseTheme.media.large} {
     width: 90%;
-  }
-`;
-
-export const PaymentHeader = styled.div`
-  margin-bottom: 20px;
-
-  p {
-    font-size: 1.2em;
-  }
-`;
-
-export const Wrapper = styled.div`
-  &.fade-enter {
-    transform: translateX(100%);
-  }
-  &.fade-enter-active {
-    transform: translateX(0);
-    transition: transform 500ms;
-  }
-  &.fade-exit {
-    transform: translateX(0);
-  }
-  &.fade-exit-active {
-    transform: translateX(-100%);
-    transition: transform 500ms;
   }
 `;
 

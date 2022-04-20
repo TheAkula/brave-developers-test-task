@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../header";
+import { Header } from "../header";
 import { LayoutContainer } from "./styled";
 
-const Layout = ({ children }: any) => {
+export const Layout = ({ children }: any) => {
   return (
     <div>
       <Header />
@@ -10,5 +10,3 @@ const Layout = ({ children }: any) => {
     </div>
   );
 };
-
-export default Layout;

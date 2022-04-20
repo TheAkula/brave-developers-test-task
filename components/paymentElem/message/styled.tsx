@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { baseTheme } from "../../../styles/theme";
 
 export const ErrorElem = styled.div`
   text-align: center;
@@ -8,20 +9,17 @@ export const ErrorElem = styled.div`
     height: 60px;
   }
 
-  div {
-  }
-
   a {
     text-decoration: none;
   }
 
   p {
     font-size: 18px;
-    color: green;
+    color: ${baseTheme.colors.success};
   }
 
   .err {
-    color: #ff0800;
+    color: ${baseTheme.colors.error};
   }
 
   .buttons-container {

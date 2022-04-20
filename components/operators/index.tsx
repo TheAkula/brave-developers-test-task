@@ -1,8 +1,8 @@
-import Operator from "./operator";
+import { Operator } from "./operator";
 import data from "../../public/data/operators.json";
 import { OperatorsContainer } from "./styled";
 
-const Operators = ({ title }: { title: string }) => {
+export const Operators = ({ title }: { title: string }) => {
   return (
     <OperatorsContainer>
       {data.operators
@@ -15,5 +15,3 @@ const Operators = ({ title }: { title: string }) => {
     </OperatorsContainer>
   );
 };
-
-export default Operators;

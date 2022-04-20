@@ -1,41 +1,5 @@
 import styled from "styled-components";
-
-export const InputContainer = styled.div`
-  position: relative;
-  display: flex;
-  gap: 40px;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-
-  :first-of-type {
-    margin-bottom: 40px;
-  }
-  label {
-    font-size: 1em;
-    color: rgb(30, 30, 30);
-  }
-
-  input {
-    padding: 6px;
-    border-radius: 0;
-    border: 2px solid #808080;
-    outline: none;
-  }
-
-  input:focus {
-    border: 2px solid #ffef00;
-  }
-
-  input:last-of-type {
-    width: 150px;
-  }
-
-  @media screen and (max-width: 340px) {
-    flex-direction: column;
-    gap: 20px;
-  }
-`;
+import { baseTheme } from "../../../styles/theme";
 
 export const Operator = styled.div`
   text-align: center;
@@ -71,7 +35,7 @@ export const PaymentContent = styled.div`
     align-items: center;
     margin-top: 40px;
 
-    @media screen and (max-width: 680px) {
+    @media ${baseTheme.media.big} {
       justify-content: center;
       gap: 40px;
     }
@@ -95,7 +59,7 @@ export const PaymentFooter = styled.div`
     font-size: 0.9em;
   }
 
-  @media screen and (max-width: 340px) {
+  @media ${baseTheme.media.small} {
     margin-top: 100px;
   }
 `;

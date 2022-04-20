@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { baseTheme } from "../../../styles/theme";
 
 export const StyledLink = styled.a`
   display: block;
@@ -6,7 +7,7 @@ export const StyledLink = styled.a`
   height: 200px;
   background-color: #fff;
   text-decoration: none;
-  color: black;
+  color: ${baseTheme.colors.text};
   border-radius: 2px;
   text-align: center;
   padding-top: 30px;
@@ -21,7 +22,7 @@ export const StyledLink = styled.a`
     font-size: 1em;
   }
 
-  @media screen and (max-width: 500px) {
+  @media ${baseTheme.media.medium} {
     width: 120px;
     height: 160px;
   }
@@ -36,7 +37,7 @@ export const ImageContainer = styled.div`
     height: 100%;
   }
 
-  @media screen and (max-width: 500px) {
+  @media ${baseTheme.media.medium} {
     width: 60px;
     height: 60px;
   }

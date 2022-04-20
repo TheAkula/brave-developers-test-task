@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { baseTheme } from "../../styles/theme";
 
 export const HeaderInner = styled.div`
-  height: 60px;
+  height: ${baseTheme.sizes.header.height};
   padding: 20px;
   display: flex;
   align-items: center;

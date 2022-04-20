@@ -1,28 +1,23 @@
-import { useState, FormEventHandler, useRef } from "react";
+import { useState, FormEventHandler } from "react";
 
-import Layout from "../layout";
-import Container from "../container";
+import { Layout } from "../layout";
 import { OperatorProps } from "../../pages/operators/[id]";
-import PaymentForm from "./paymentForm";
-import LevelBar from "./levelBar";
-import { SwitchTransition, CSSTransition } from "react-transition-group";
-import Spinner from "../UI/spinner";
-import Message from "./message";
-import {
-  PaymentElem,
-  PaymentHeader,
-  SpinnerContainer,
-  Wrapper,
-} from "./styled";
+import { PaymentForm } from "./paymentForm";
+import { Spinner } from "../UI/spinner";
+import { Message } from "./message";
+import { PaymentElem, SpinnerContainer } from "./styled";
+import { useSubmit } from "../../hooks/useSubmit";
+import { Header } from "./header";
+import { TransitionContainer } from "./transitionContainer";
 
-const Payment = ({ id, title, imgUrl }: OperatorProps) => {
+export const Payment = ({ id, title, imgUrl }: OperatorProps) => {
   const [phoneValue, setPhoneValue] = useState("");
   const [sumValue, setSumValue] = useState("");
   const [isPaid, setIsPaid] = useState(false);
   const [level, setLevel] = useState(0);
   const [isFailed, setIsFailed] = useState(false);
   const [message, setMessage] = useState("");
-  const nodeRef = useRef<null | HTMLDivElement>(null);
+  const submit = useSubmit();
 
   const onPhoneChangedHandler = (newPhone: string) => {
     setPhoneValue(newPhone);
@@ -37,14 +32,7 @@ const Payment = ({ id, title, imgUrl }: OperatorProps) => {
     setIsFailed(false);
     setMessage("");
     setLevel(1);
-    fetch("/api/pay", {
-      method: "POST",
-      body: JSON.stringify({ phone: phoneValue, sum: sumValue, id: id }),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => {
-        return res.json();
-      })
+    submit({ phone: phoneValue, sum: sumValue, id: id })
       .then((data) => {
         if (data.error) {
           setMessage(data.error);
@@ -63,51 +51,27 @@ const Payment = ({ id, title, imgUrl }: OperatorProps) => {
   return (
     <Layout>
       <PaymentElem>
-        <div>
-          <Container>
-            <PaymentHeader>
-              <p>Мобильный телефон</p>
-            </PaymentHeader>
-            <LevelBar level={level} failed={isFailed} paid={isPaid} />
-          </Container>
-        </div>
-        <SwitchTransition mode="out-in">
-          <CSSTransition
-            key={level}
-            addEndListener={(done) =>
-              nodeRef.current!.addEventListener("transitionend", done, false)
-            }
-            classNames="fade"
-            nodeRef={nodeRef}
-          >
-            <Wrapper ref={nodeRef}>
-              {level === 0 ? (
-                <PaymentForm
-                  setSum={onSumChangedHandler}
-                  setPhone={onPhoneChangedHandler}
-                  curPhone={phoneValue}
-                  curSum={sumValue}
-                  submited={onSubmitHandler}
-                  imgUrl={imgUrl}
-                  title={title}
-                />
-              ) : level === 1 && !isFailed ? (
-                <SpinnerContainer>
-                  <Spinner />
-                </SpinnerContainer>
-              ) : (
-                <Message
-                  err={isFailed}
-                  message={message}
-                  retry={onSubmitHandler}
-                />
-              )}
-            </Wrapper>
-          </CSSTransition>
-        </SwitchTransition>
+        <Header isFailed={isFailed} isPaid={isPaid} level={level} />
+        <TransitionContainer level={level}>
+          {level === 0 ? (
+            <PaymentForm
+              setSum={onSumChangedHandler}
+              setPhone={onPhoneChangedHandler}
+              curPhone={phoneValue}
+              curSum={sumValue}
+              submited={onSubmitHandler}
+              imgUrl={imgUrl}
+              title={title}
+            />
+          ) : level === 1 && !isFailed ? (
+            <SpinnerContainer>
+              <Spinner />
+            </SpinnerContainer>
+          ) : (
+            <Message err={isFailed} message={message} retry={onSubmitHandler} />
+          )}
+        </TransitionContainer>
       </PaymentElem>
     </Layout>
   );
 };
-
-export default Payment;

@@ -8,7 +8,7 @@ interface OperatorProps {
   imgUrl: string;
 }
 
-const Operator = ({ id, title, imgUrl }: OperatorProps) => {
+export const Operator = ({ id, title, imgUrl }: OperatorProps) => {
   return (
     <Link href={"/operators/" + id} passHref>
       <StyledLink>
@@ -27,5 +27,3 @@ const Operator = ({ id, title, imgUrl }: OperatorProps) => {
     </Link>
   );
 };
-
-export default Operator;

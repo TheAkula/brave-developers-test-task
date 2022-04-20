@@ -1,4 +1,5 @@
 import { StyledLevelBar, Level } from "./styled";
+import { baseTheme } from "../../../../styles/theme";
 
 interface LevelBarProps {
   level: number;
@@ -6,8 +7,12 @@ interface LevelBarProps {
   failed: boolean;
 }
 
-const LevelBar = ({ level, paid, failed }: LevelBarProps) => {
-  const color = paid ? "green" : failed ? "red" : "#ffef00";
+export const LevelBar = ({ level, paid, failed }: LevelBarProps) => {
+  const color = paid
+    ? baseTheme.colors.success
+    : failed
+    ? baseTheme.colors.error
+    : baseTheme.colors.second;
 
   return (
     <StyledLevelBar>
@@ -37,5 +42,3 @@ const LevelBar = ({ level, paid, failed }: LevelBarProps) => {
     </StyledLevelBar>
   );
 };
-
-export default LevelBar;

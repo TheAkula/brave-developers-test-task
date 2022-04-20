@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import operators from "../../public/data/operators.json";
-import PaymentElem from "../../components/paymentElem";
+import { Payment } from "../../components/paymentElem";
 
 export interface OperatorProps {
   id: string;
@@ -9,7 +9,7 @@ export interface OperatorProps {
 }
 
 const Operator = (props: OperatorProps) => {
-  return <PaymentElem {...props} />;
+  return <Payment {...props} />;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
